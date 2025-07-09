@@ -26,7 +26,6 @@ const Header = () => {
 
     const onSelect = (cityName: string) => {
         setCity(cityName);
-        console.log(city)
     }
     
     return (

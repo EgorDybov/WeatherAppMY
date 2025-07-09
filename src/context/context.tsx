@@ -3,10 +3,7 @@ import type { IWeather, IWeatherContext } from "./types"
 import { getCityUrl, getWeatherDaily } from "../api/apiPoint";
 import axios from "axios";
 
-export const WeatherContext = createContext<IWeatherContext>({
-    weather: null,
-    setWeather: () => {}
-})
+export const WeatherContext = createContext<IWeatherContext | null>(null)
 
 export const WeatherProvider= ({children}: React.PropsWithChildren) => {
     const [city, setCity] = useState<string>('Moscow');
@@ -21,25 +18,6 @@ export const WeatherProvider= ({children}: React.PropsWithChildren) => {
             .catch(error => console.log(error));
             
     }, [city])
-
-    
-    useEffect(() => {
-        const fetchWeatherData = async () => {
-            const url = getWeatherDaily();
-            try {
-                const response = await fetch(url);
-                const data = await response.json()
-                console.log('data', data);
-                
-            } catch (error) {
-                console.log('Ошибка:', error);
-            }
-        };
-
-        fetchWeatherData();
-    }, []);
-    
-    
 
     return (
         <WeatherContext.Provider value={{weather, city, setCity}}>

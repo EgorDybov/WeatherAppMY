@@ -1,20 +1,25 @@
 import styles from './ThisDay.module.scss';
 
-import { GlovalSvgSelector } from '../../assets/icons/global/GlobalSvgSelector';
+import { GlovalSvgSelector, MapIcons } from '../../assets/icons/global/GlobalSvgSelector';
 import { WeatherContext } from '../../context/context';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 
 const ThisDay = () => {
-    const { weather } = useContext(WeatherContext)
-    console.log(weather);
+    const context = useContext(WeatherContext)
+    
+    if(!context?.weather) {
+        return <img src="https://loading.io/assets/mod/spinner/spinner/lg.gif" style={{width:100, height:100}}  alt="Spinner - Build GIF, SVG, APNG, CSS and Lottie Ajax Preloaders with Loading .io"></img>
+    }
+
+    const { weather } = context
     
     const toCelsius = (kelvin:number): number => Math.round(kelvin - 273.15)
     
     let celsiusTemp: number | undefined;
 
-    if(weather && typeof weather.main.temp === 'number') {
-        celsiusTemp = toCelsius(weather?.main.temp)
+    if(weather && weather.main) {
+        celsiusTemp = toCelsius(Number(weather?.main.temp))
     }
 
     return (
@@ -28,7 +33,8 @@ const ThisDay = () => {
                 <p className={styles.currentTown}>{weather?.name}</p>
             </div>
             <div className={styles.svgWeather}>
-                <GlovalSvgSelector  id='sun' width={119} height={119}/>
+                {/* <GlovalSvgSelector  id='sun' width={119} height={119}/> */}
+                {MapIcons.get(weather.weather[0].description.toLowerCase())}
             </div>
             
         </div>

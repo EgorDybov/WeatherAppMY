@@ -15,7 +15,6 @@ function App() {
 
   return (
     <WeatherProvider>
-      <div className="">
         <div className={styles.container}>
           <Header/>
           <div className={styles.dayInfo}>
@@ -25,7 +24,6 @@ function App() {
           <Filter/>
           <Cards/>
         </div>
-      </div>
     </WeatherProvider>
   )
 }
