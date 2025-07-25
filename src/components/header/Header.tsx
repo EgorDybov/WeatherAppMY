@@ -40,7 +40,7 @@ const Header = () => {
                     className={styles.headerSelect} 
                     options={options}
                     placeholder={'Выберите город'}
-                    onChange={onSelect}
+                    onChange={onSelect} showSearch
                     value={city}
                 />
                     

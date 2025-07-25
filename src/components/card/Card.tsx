@@ -16,10 +16,10 @@ const Card = ({day}: IDay) => {
     let celsiusTempMax: number | undefined;
     let celsiusTempMin: number | undefined;
 
-    if(weather && typeof weather.main.temp === 'number') {
-        celsiusTempMax = toCelsius(weather?.main.temp_max)
-        celsiusTempMin = toCelsius(weather?.main.temp_min)
-    }
+    // if(weather && typeof weather.main.temp === 'number') {
+    //     celsiusTempMax = toCelsius(weather?.main.temp_max)
+    //     celsiusTempMin = toCelsius(weather?.main.temp_min)
+    // }
 
 
     return (

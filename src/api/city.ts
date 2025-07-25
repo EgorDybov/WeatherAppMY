@@ -90,6 +90,26 @@ export const api = [
         }
     },
     {
+        "id": 348271213,
+        "name": "Minsk",
+        "state": "",
+        "country": "BY",
+        "coord": {
+            "lon": 53.9006,
+            "lat": 27.5590
+        }
+    },
+    {
+        "id": 34827103,
+        "name": "Pekin",
+        "state": "",
+        "country": "CN",
+        "coord": {
+            "lon": 39.9042,
+            "lat": 116.4074
+        }
+    },
+    {
         "id": 34846,
         "name": "Wadarah",
         "state": "",
@@ -129,46 +149,7 @@ export const api = [
             "lat": 16.909161
         }
     },
-    {
-        "id": 34915,
-        "name": "Dayr al Ḩisī",
-        "state": "",
-        "country": "YE",
-        "coord": {
-            "lon": 43.099998,
-            "lat": 16.049999
-        }
-    },
-    {
-        "id": 35056,
-        "name": "Tabrīz Jānī",
-        "state": "",
-        "country": "IR",
-        "coord": {
-            "lon": 46.23333,
-            "lat": 38.133331
-        }
-    },
-    {
-        "id": 36741,
-        "name": "Andīmeshk",
-        "state": "",
-        "country": "IR",
-        "coord": {
-            "lon": 48.383331,
-            "lat": 32.533329
-        }
-    },
-    {
-        "id": 37755,
-        "name": "Ravīndūzaq",
-        "state": "",
-        "country": "IR",
-        "coord": {
-            "lon": 48.080002,
-            "lat": 38.4398
-        }
-    },
+
     {
         "id": 39161,
         "name": "Māmā’ī",
@@ -207,16 +188,6 @@ export const api = [
         "coord": {
             "lon": 50.533329,
             "lat": 35.466671
-        }
-    },
-    {
-        "id": 44992,
-        "name": "Koshtārgāh",
-        "state": "",
-        "country": "IR",
-        "coord": {
-            "lon": 49.166672,
-            "lat": 30.549999
         }
     },
     {
@@ -14167,6 +14138,16 @@ export const api = [
         "coord": {
             "lon": 36.73238,
             "lat": 34.926529
+        }
+    },
+    {
+        "id": 172946298382,
+        "name": "Astana",
+        "state": "",
+        "country": "KZ",
+        "coord": {
+            "lon": 51.1605,
+            "lat": 71.4410
         }
     },
     {
@@ -42687,6 +42668,16 @@ export const api = [
         "coord": {
             "lon": 34.67083,
             "lat": 29.029169
+        }
+    },
+    {
+        "id": 346313232315,
+        "name": "Washington",
+        "state": "",
+        "country": "US",
+        "coord": {
+            "lon": 38.9072,
+            "lat": 77.0369
         }
     },
     {

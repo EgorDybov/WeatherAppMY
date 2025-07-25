@@ -2,20 +2,58 @@ import { useContext } from 'react'
 import { GlovalSvgSelector } from '../../assets/icons/global/GlobalSvgSelector'
 import { WeatherContext } from '../../context/context'
 import styles from './ThisDayInfo.module.scss'
+// import type { IWeather } from '../../context/types'
+import { Spin } from 'antd'
+import type { IDictionary } from './types'
 
+
+const dictionary: IDictionary = {
+    ru: {
+        'Partly Cloudy': 'Переменная облачность',
+        'Sunny': 'Coлнечно',
+        'Overcast': 'Пасмурно',
+        'Light rain shower': 'Летний тропический дождь',
+        'Patchy light rain in area with thunder': 'Местами небольшой дождь с грозой',
+        'Thundery outbreaks in nearby': 'Грозовые вспышки в близлежащих районах',
+        'Moderate or heavy rain shower': 'Умеренный или сильный ливень',
+        'Patchy light drizzle': 'Местами моросящий дождь'
+    }
+}
 
 const ThisDayInfo = () => {
-    const {weather} = useContext(WeatherContext);
+    const context = useContext(WeatherContext);
+    // использкем хук useContext для получения текущего контекста 
     
-    const toCelsius = (kelvin:number): number => Math.round(kelvin - 273.15)
+    if(!context?.weather) {
+        return (
+            <div className={styles.container} style={{justifyContent: 'center', alignItems:'center'}}>
+                <Spin size='large'/>
+            </div>
+        )
+    }
+
+    const translate = (
+        text: string,
+        dictionary: IDictionary,
+        lang: string
+    ): string => {
+        const translation = dictionary[lang][text];
+        return translation ? translation : 'Перевод не найден'
+    }
+    
+    const { weather } = context
+    // извлекаем из объекта context свойство weather для лаконичного использования. Можем напрямую обращаться к weather, вместо context.weather
+    
     const toMmOfMercury = (preasure: number):number => Math.round(preasure/1.333)
-    
-    let celsiusTemp: number | undefined;
+    const windSpeedMs = (speedWind: number): any => {
+        const result = speedWind/2.236936 
+        return result.toFixed(1)
+    }
+     
     let mmOfMercuryPreasure: number | undefined
 
-    if(weather && typeof weather.main.temp === 'number') {
-        celsiusTemp = toCelsius(weather?.main.temp);
-        mmOfMercuryPreasure = toMmOfMercury(weather.main.pressure)
+    if(weather) {
+        mmOfMercuryPreasure = toMmOfMercury(weather?.current.pressure_mb)
     }
 
 
@@ -50,10 +88,10 @@ const ThisDayInfo = () => {
             </div>
 
             <div className={styles.indicatorRight}>
-                <p className={styles.indicatorValue}>{celsiusTemp}°</p>
-                <p className={styles.indicatorValue}>{mmOfMercuryPreasure} мм ртутного столба</p>
-                <p className={styles.indicatorValue}>{weather?.weather[0].description}</p>
-                <p className={styles.indicatorValue}>{Math.round(weather?.wind.speed)} м/с юго-запад - легкий ветер</p>
+                <p className={styles.indicatorValue}>{Math.round(weather?.current.temp_c)}°</p>
+                <p className={styles.indicatorValue}>{mmOfMercuryPreasure} мм. ртутного столба</p>
+                <p className={styles.indicatorValue}>{translate(weather?.current.condition.text, dictionary, 'ru')}</p>
+                <p className={styles.indicatorValue}>{windSpeedMs(weather?.current.wind_mph)} м/с</p>
             </div>
                 
         </div>
