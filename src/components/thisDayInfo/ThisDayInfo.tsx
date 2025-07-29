@@ -1,24 +1,13 @@
 import { useContext } from 'react'
+import { Spin } from 'antd'
+
 import { GlovalSvgSelector } from '../../assets/icons/global/GlobalSvgSelector'
 import { WeatherContext } from '../../context/context'
-import styles from './ThisDayInfo.module.scss'
-// import type { IWeather } from '../../context/types'
-import { Spin } from 'antd'
 import type { IDictionary } from './types'
+import { dictionary, translate } from '../../utils/utils'
 
+import styles from './ThisDayInfo.module.scss'
 
-const dictionary: IDictionary = {
-    ru: {
-        'Partly Cloudy': 'Переменная облачность',
-        'Sunny': 'Coлнечно',
-        'Overcast': 'Пасмурно',
-        'Light rain shower': 'Летний тропический дождь',
-        'Patchy light rain in area with thunder': 'Местами небольшой дождь с грозой',
-        'Thundery outbreaks in nearby': 'Грозовые вспышки в близлежащих районах',
-        'Moderate or heavy rain shower': 'Умеренный или сильный ливень',
-        'Patchy light drizzle': 'Местами моросящий дождь'
-    }
-}
 
 const ThisDayInfo = () => {
     const context = useContext(WeatherContext);
@@ -32,14 +21,6 @@ const ThisDayInfo = () => {
         )
     }
 
-    const translate = (
-        text: string,
-        dictionary: IDictionary,
-        lang: string
-    ): string => {
-        const translation = dictionary[lang][text];
-        return translation ? translation : 'Перевод не найден'
-    }
     
     const { weather } = context
     // извлекаем из объекта context свойство weather для лаконичного использования. Можем напрямую обращаться к weather, вместо context.weather

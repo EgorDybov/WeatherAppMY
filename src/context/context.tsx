@@ -28,11 +28,6 @@ export const WeatherProvider= ({children}: React.PropsWithChildren) => {
             .catch(error => console.log(error))
     }, [city])
 
-    console.log(weather);
-    
-
-
-
     return (
         <WeatherContext.Provider value={{weather, city, setCity}}>
             {children}

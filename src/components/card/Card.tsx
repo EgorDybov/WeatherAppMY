@@ -1,35 +1,41 @@
-import { useContext } from "react"
 import { GlovalSvgSelector } from "../../assets/icons/global/GlobalSvgSelector"
-import { WeatherContext } from "../../context/context"
+import { dictionary, translate } from "../../utils/utils";
 
 import styles from './Card.module.scss'
 
-interface IDay {
-    day: string
-}
+// interface IDay {
+//     day: string,
+//     forecast: {}
+// }
 
-const Card = ({day}: IDay) => {
-    const {weather} = useContext(WeatherContext)
+const Card = ({date, forecast}: any ) => {
 
-    const toCelsius = (kelvin:number): number => Math.round(kelvin - 273.15)
+    const { day } = forecast
+
+    const maxTemp = day?.maxtemp_c;
+    const minTemp = day?.mintemp_c;
+
+    console.log(day);
     
-    let celsiusTempMax: number | undefined;
-    let celsiusTempMin: number | undefined;
-
-    // if(weather && typeof weather.main.temp === 'number') {
-    //     celsiusTempMax = toCelsius(weather?.main.temp_max)
-    //     celsiusTempMin = toCelsius(weather?.main.temp_min)
-    // }
-
-
+    
     return (
         <div className={styles.card}>
-            <p className={styles.day}>{day}</p>
-            <p className={styles.date}>28 авг</p>
+            {date ? <p className={styles.day}>{date}</p> : <p className={styles.day}>2025-00-00</p>}
+            {date ? <p className={styles.date}>{date.split('-').reverse().join('-')} </p> : <p className={styles.date}>2025-00-00</p>}
             <GlovalSvgSelector id="sun-rain"/>
-            <p className={styles.tempDay}>{celsiusTempMax}°</p>
-            <p className={styles.tempNight}>{celsiusTempMin}°</p>
-            <p className={styles.desc}>Облачно</p>
+
+            {maxTemp !== undefined ? (
+                <p className={styles.tempDay}>{Math.round(day.maxtemp_c)}°</p> 
+            ) : ( 
+                <p className={styles.tempDay}>Данных нет</p>
+            )}
+            {minTemp !== undefined ? (
+                <p className={styles.tempNight}>{Math.round(day.mintemp_c)}°</p> 
+            ) : (
+                <p className={styles.tempNight}>Данных нет</p>
+            )}
+
+            {day?.condition.text ? <p className={styles.desc}>{translate(day?.condition.text, dictionary, 'ru')}</p> : <p className={styles.desc}>Данных нет</p>}
         </div>
     )
 }

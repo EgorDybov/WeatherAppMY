@@ -191,6 +191,16 @@ export const api = [
         }
     },
     {
+        "id": 4196323224,
+        "name": "London",
+        "state": "",
+        "country": "UK",
+        "coord": {
+            "lon": 51.5085,
+            "lat": 0.12574
+        }
+    },
+    {
         "id": 45013,
         "name": "Jozf-e Soflá",
         "state": "",

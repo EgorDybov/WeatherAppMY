@@ -16,7 +16,7 @@
 
 const API_KEY = '880c2e7c183d49b4b06192149250407';
 
-export const getWeekWeather = (city: string, days: number = 10) => {
+export const getWeekWeather = (city: string, days: number = 7) => {
     return `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=${days}&aqi=yes&alerts=no`
 }
 

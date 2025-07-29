@@ -2,7 +2,7 @@ import styles from './ThisDay.module.scss';
 
 import { MapIcons } from '../../assets/icons/global/GlobalSvgSelector';
 import { WeatherContext } from '../../context/context';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Spin } from "antd";
 
 
@@ -25,7 +25,6 @@ const ThisDay = () => {
     //     celsiusTemp = toCelsius(Number(weather?.main.temp))
     // }
 
-    console.log(weather)
 
     return (
         <div className={styles.container}>
