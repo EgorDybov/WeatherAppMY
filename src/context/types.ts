@@ -56,6 +56,8 @@ export interface IWeatherContext {
     weather: IWeather | null;
     city: string
     setCity: (v: any) => void
+    day: any,
+    setDay: (v: any) => void
 }
 
 export interface IWeather {

@@ -8,6 +8,7 @@ export const WeatherContext = createContext<IWeatherContext | null>(null)
 export const WeatherProvider= ({children}: React.PropsWithChildren) => {
     const [city, setCity] = useState<string>('Moscow');
     const [weather, setWeather] = useState<IWeather | null>(null);
+    const [day, setDay] = useState(null);
 
     // useEffect(() => {
     //   const url = getCityUrl(city);
@@ -21,15 +22,21 @@ export const WeatherProvider= ({children}: React.PropsWithChildren) => {
 
     useEffect(() => {
         const url = getWeekWeather(city);
+
+        // isLoading(false)
+
         axios.get(url)
             .then(responce => {
                 setWeather(responce.data)
             })
             .catch(error => console.log(error))
-    }, [city])
+            // .finally(() => {
+            //     setLoading(true)
+            // })
+    }, [city]) //isLoading
 
     return (
-        <WeatherContext.Provider value={{weather, city, setCity}}>
+        <WeatherContext.Provider value={{weather, city, setCity, day, setDay}}>
             {children}
         </WeatherContext.Provider>
     )

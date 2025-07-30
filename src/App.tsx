@@ -5,13 +5,13 @@ import ThisDay from './components/thisDay/ThisDay'
 import styles from './App.module.scss'
 import ThisDayInfo from './components/thisDayInfo/ThisDayInfo'
 import { WeatherProvider } from './context/context'
+import Modal from './components/modal/Modal'
+import SkeletonCard from './components/skeletonCard/SkeletonCard'
 
 
 
 
 function App() {
-
-
 
   return (
     <WeatherProvider>
@@ -24,6 +24,8 @@ function App() {
           <Filter/>
           <Cards/>
         </div>
+        <Modal/>
+        <SkeletonCard/>
     </WeatherProvider>
   )
 }
