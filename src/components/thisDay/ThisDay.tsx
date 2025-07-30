@@ -16,6 +16,10 @@ const ThisDay = () => {
     }
 
     const { weather } = context
+
+
+    console.log('weather', weather);
+    
     
     // const toCelsius = (kelvin:number): number => Math.round(kelvin - 273.15)
     
@@ -24,7 +28,6 @@ const ThisDay = () => {
     // if(weather && weather.main) {
     //     celsiusTemp = toCelsius(Number(weather?.main.temp))
     // }
-
 
     return (
         <div className={styles.container}>
