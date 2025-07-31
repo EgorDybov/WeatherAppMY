@@ -3,9 +3,10 @@ import Card from '../card/Card'
 import { WeatherContext } from '../../context/context'
 
 import styles from './Cards.module.scss'
+import SkeletonCard from '../skeletonCard/SkeletonCard'
 // import type { IForecastday } from './types'
 
-const Cards = () => {
+const Cards = ({openModal}:any) => {
 
     const context = useContext(WeatherContext)
 
@@ -19,13 +20,13 @@ const Cards = () => {
     const missingCards = requiredCountCards - forecastDays.length;
 
     const emptyCards = Array.from({length: missingCards}, (_, index) => (
-        <Card key={`empty-${index}`} date="" forecast={{}}/>
+        <SkeletonCard />
     ))
     
     return (
         <div className={styles.container}>
             {weather?.forecast.forecastday.map((dayForecast) => (
-                <Card key={dayForecast.date} date={dayForecast.date} forecast={dayForecast}/>
+                <Card key={dayForecast.date} date={dayForecast.date} forecast={dayForecast} onClick={openModal}/>
             ))}
             {emptyCards}
         </div>

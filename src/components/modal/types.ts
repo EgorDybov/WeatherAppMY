@@ -4,3 +4,8 @@ export interface IHourData {
     pv?: string,
     amt?: string
 }
+
+export interface IModalProps {
+    isOpen: boolean
+    onClose: () => void
+}

@@ -6,12 +6,15 @@ export const dictionary: IDictionary = {
         'partly cloudy': 'Переменная облачность',
         'sunny': 'Coлнечно',
         'overcast': 'Пасмурно',
+        'cloudy': 'Облачно',
         'light rain shower': 'Летний тропический дождь',
         'patchy light rain in area with thunder': 'Местами небольшой дождь с грозой',
         'thundery outbreaks in nearby': 'Грозовые вспышки в близлежащих районах',
         'moderate or heavy rain shower': 'Умеренный или сильный ливень',
         'patchy light drizzle': 'Местами моросящий дождь',
-        'patchy rain nearby': 'Неподалеку проливной дождь'
+        'patchy rain nearby': 'Неподалеку проливной дождь',
+        'moderate rain': 'Умеренный дождь',
+        'light drizzle': 'Небольшой моросящий дождь'
     }
 }
 
