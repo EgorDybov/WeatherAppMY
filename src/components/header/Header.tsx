@@ -9,7 +9,11 @@ import { GlovalSvgSelector } from "../../assets/icons/global/GlobalSvgSelector";
 import styles from "./Header.module.scss";
 
 const Header = () => {
-  const { city, setCity } = useContext(WeatherContext);
+  const context = useContext(WeatherContext) ;
+
+  if (!context) throw new Error('No WeatherContext');
+
+  const {city, setCity} = context
 
   const options: SelectProps["options"] = useMemo(() => {
     return cities.map((city) => {

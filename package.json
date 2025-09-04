@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "delpoy": "gh-pages -d dist"
   },
   "dependencies": {
     "antd": "^5.25.4",

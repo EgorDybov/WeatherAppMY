@@ -19,7 +19,7 @@ const Modal = ({isOpen, onClose}: IModalProps) => {
     const data = context?.day || [];
 
     if(Array.isArray(context?.day)) {
-      const preparedData = data.map((hour) => {
+      const preparedData = data.map((hour: any) => {
         return {
           name: hour.time.slice(-5),
           temperature: hour.temp_c,

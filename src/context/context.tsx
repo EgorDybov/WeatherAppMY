@@ -9,7 +9,7 @@ import { getWeekWeather } from "../api/apiPoint";
 export const WeatherContext = createContext<IWeatherContext | null>(null)
 
 export const WeatherProvider = ({children}: React.PropsWithChildren) => {
-    const [city, setCity] = useState('Moscow');
+    const [city, setCity] = useState<string>('Moscow');
     const [weather, setWeather] = useState<IWeather | null>(null);
     const [day, setDay] = useState(null);
     const [date, setDate] = useState(null) 
