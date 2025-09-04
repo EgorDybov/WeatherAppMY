@@ -19,14 +19,18 @@ MapIcons.set("sunny", SunnyIcon);
 MapIcons.set("clear", SunnyIcon);
 MapIcons.set("partly cloudy", PartlyCloudyIcon);
 MapIcons.set("overcast", OvercastIcon);
-MapIcons.set("сloudy", OvercastIcon);
+MapIcons.set("cloudy", OvercastIcon);
 MapIcons.set("light rain shower", LightRainShowerIcon);
 MapIcons.set("patchy light rain in area with thunder", PatchyLightRainIcon);
+MapIcons.set("patchy light rain with thunder", PatchyLightRainIcon);
 MapIcons.set("thundery outbreaks in nearby", ThunderyOutbreaksIcon);
 MapIcons.set("moderate or heavy rain shower", HeavyRainIcon);
+MapIcons.set("heavy rain", HeavyRainIcon);
+MapIcons.set("moderate or heavy rain with thunder", HeavyRainIcon);
 MapIcons.set("patchy rain nearby", PatchyRainIcon);
 MapIcons.set("moderate rain", PatchyRainIcon);
 MapIcons.set("patchy light drizzle", PatchyRainIcon);
+MapIcons.set("light rain", PatchyRainIcon);
 MapIcons.set("light drizzle", PatchyRainIcon);
 
 export const GlovalSvgSelector = ({ id, width = 48, height = 48 }: ISvg) => {

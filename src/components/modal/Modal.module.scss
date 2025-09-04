@@ -1,11 +1,11 @@
 .overlay {
     position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* черное с прозрачностью */
-  z-index: 9998;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* черное с прозрачностью */
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .wrapper {
@@ -18,7 +18,7 @@
     transform: translate(-50%, -50%);
     padding: 15px;
     border-radius: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--background-main-card-color);
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.28);
     max-width: 800px;
     margin: 0 auto;
@@ -28,8 +28,12 @@
     display: flex;
     justify-content: space-between;
 }
-.cityName span {
-    color: rgba(71, 147, 255);
+.cityName {
+    color: var(--text-color);
+
+    span {
+        color: rgba(71, 147, 255);
+    }
 }
 
 .closeBtn {
@@ -39,6 +43,8 @@
     border-radius: 100px;
     background-color: #F86E6E;
     overflow: hidden;
+    border: 0;
+    cursor: pointer;
 
     &::after {
         content: '';

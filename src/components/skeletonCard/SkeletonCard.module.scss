@@ -6,6 +6,7 @@
     transition: box-shadow ease-in 0.3s, transform 0.2s ease-in;;
     border: 1px solid rgb(226, 226, 226);
     border-color: rgba(0, 106, 255, 0.2);
+    background-color: var(--card-color);
 
     &:hover {
         box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.28);

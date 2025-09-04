@@ -1,9 +1,11 @@
-import styles from "./ThisDay.module.scss";
-
-import { MapIcons } from "../../assets/icons/global/GlobalSvgSelector";
-import { WeatherContext } from "../../context/context";
 import { useContext } from "react";
 import { Spin } from "antd";
+
+import { WeatherContext } from "../../context/context";
+
+import { MapIcons } from "../../assets/icons/global/GlobalSvgSelector";
+
+import styles from "./ThisDay.module.scss";
 
 const ThisDay = () => {
   const context = useContext(WeatherContext);
@@ -18,17 +20,9 @@ const ThisDay = () => {
 
   const { weather } = context;
 
-  // const toCelsius = (kelvin:number): number => Math.round(kelvin - 273.15)
-
-  // let celsiusTemp: number | undefined;
-
-  // if(weather && weather.main) {
-  //     celsiusTemp = toCelsius(Number(weather?.main.temp))
-  // }
-
-  console.log(weather?.current.condition);
-
-  const IconComponent = MapIcons.get(weather?.current.condition.text?.toLowerCase())
+  const IconComponent = MapIcons.get(
+    weather?.current.condition.text?.toLowerCase()
+  );
 
   return (
     <div className={styles.container}>
@@ -43,8 +37,7 @@ const ThisDay = () => {
         <p className={styles.currentTown}>{weather.location.name}</p>
       </div>
       <div className={styles.svgWeather}>
-        {/* <GlovalSvgSelector  id='sun' width={119} height={119}/> */}
-        {IconComponent ? <IconComponent/> : null}
+        {IconComponent ? <IconComponent /> : null}
       </div>
     </div>
   );

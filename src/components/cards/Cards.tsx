@@ -1,26 +1,31 @@
 import { useContext } from 'react'
-import Card from '../card/Card'
+
 import { WeatherContext } from '../../context/context'
+import Card from '../card/Card'
+import SkeletonCard from '../skeletonCard/SkeletonCard'
 
 import styles from './Cards.module.scss'
-import SkeletonCard from '../skeletonCard/SkeletonCard'
-// import type { IForecastday } from './types'
 
-const Cards = ({openModal}:any) => {
+type CardsProps = {
+    requiredCountCards: number,
+    openModal: (v: number) => void
+}
+
+const Cards = ({requiredCountCards, openModal}: CardsProps) => {
 
     const context = useContext(WeatherContext)
 
     if(!context) return undefined
 
     const { weather } = context
+
     const forecastDays = weather?.forecast.forecastday || []
 
-    //количество карточек, которое нужно отобразить
-    const requiredCountCards = 7;
+    //количество карточек, которое нужно отобразитьx
     const missingCards = requiredCountCards - forecastDays.length;
 
-    const emptyCards = Array.from({length: missingCards}, (_, index) => (
-        <SkeletonCard />
+    const emptyCards = Array.from({length: missingCards}, (_, i) => (
+        <SkeletonCard key={`skeleton-${i}`}/>
     ))
     
     return (

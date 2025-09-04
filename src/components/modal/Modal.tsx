@@ -1,15 +1,12 @@
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { Button } from 'antd';
+
 import { useContext, useEffect, useState } from 'react';
 
-import { Button } from 'antd';
-// import { Switch } from "antd";
-
 import { WeatherContext } from '../../context/context';
-
 import type { IHourData, IModalProps } from './types';
 
 import styles from './Modal.module.scss';
-
 
 
 const Modal = ({isOpen, onClose}: IModalProps) => {
@@ -85,9 +82,9 @@ const Modal = ({isOpen, onClose}: IModalProps) => {
               data={hourData}
               >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
+              <XAxis dataKey="name" tick={{ fill: "var(--stroke-line-color)" }}/>
+              <YAxis tick={{ fill: "var(--stroke-line-color)" }}/>
+              <Tooltip wrapperStyle={{color: '#000'}}/>
               <Legend />
               <Line type="monotone" dataKey="temperature" stroke="#4793ff" />
             </LineChart>
@@ -99,9 +96,9 @@ const Modal = ({isOpen, onClose}: IModalProps) => {
               >
               
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
+              <XAxis dataKey="name" tick={{ fill: "var(--stroke-line-color)" }}/>
+              <YAxis tick={{ fill: "var(--stroke-line-color)" }}/>
+              <Tooltip wrapperStyle={{color: '#000'}}/>
               <Legend type='line'/>
               <Bar dataKey="temperature" fill="#4793ff" />
             </BarChart>)}

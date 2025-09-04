@@ -1,14 +1,14 @@
-// import { StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  // <StrictMode>
+  <StrictMode>
     <App />
-  /* </StrictMode>, */
+  </StrictMode>,
 )
 
 
 // createRoot - корень react приложения откуда начнет строиться DOM
-// render - встроенный ренедр jsx
+// render - встроенный ренедер jsx
 // рендер в root
