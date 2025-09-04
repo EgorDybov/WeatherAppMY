@@ -1,9 +1,69 @@
+.overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* черное с прозрачностью */
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .wrapper {
-    padding: 40px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
     border-radius: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--background-main-card-color);
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.28);
-    transform: translateY(-0.64px);
     max-width: 800px;
     margin: 0 auto;
+}
+
+.modalUp {
+    display: flex;
+    justify-content: space-between;
+}
+.cityName {
+    color: var(--text-color);
+
+    span {
+        color: rgba(71, 147, 255);
+    }
+}
+
+.closeBtn {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border-radius: 100px;
+    background-color: #F86E6E;
+    overflow: hidden;
+    border: 0;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 15px;
+        height: 15px;
+        background-image: url('../../assets/icons/closeBtn.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+
 }

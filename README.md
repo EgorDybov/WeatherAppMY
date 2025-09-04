@@ -1,54 +1,38 @@
-# React + TypeScript + Vite
+# WeatherAppMY
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интерактивное веб-приложение для отображения текущей погоды и прогноза по городам, созданное с использованием **React**, **TypeScript** и **Vite**. Пользователь может искать город и получать информацию о погоде в реальном времени.
 
-Currently, two official plugins are available:
+## Функциональность
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔎 Поиск города по названию
+- 🌡️ Отображение текущей температуры, состояния неба, давления и скорости ветра
+- 🕓 Отображение времени последнего обновления данных
+- 📍 Графики изменения температуры в течение суток
+- 🎨 Адаптивный дизайн (поддержка мобильных устройств)
 
-## Expanding the ESLint configuration
+## Технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [React](https://reactjs.org/) — библиотека для построения пользовательских интерфейсов
+- [TypeScript](https://www.typescriptlang.org/) — типизированный JavaScript
+- [Vite](https://vitejs.dev/) — быстрый сборщик и дев-сервер
+- [Ant Design](https://ant.design/) - дизайн-система
+- [Reachart](https://recharts.org/en-US) - библиотека диаграмм
+- [Weather API](https://www.weatherapi.com/) — получение данных о погоде
+- Axios - отправка HTTP-запросов
+- SCSS
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Установка и запуск
+
+```bash
+# Клонировать репозиторий
+git clone https://github.com/EgorDybov/WeatherAppMY.git
+cd WeatherAppMY
+
+# Установить зависимости
+npm install
+
+# Запустить приложение
+npm run dev
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Установка и запуск 
+- [EgorDybov](https://github.com/EgorDybov) - Front-End devloper

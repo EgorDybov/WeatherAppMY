@@ -1,20 +1,38 @@
-import { Button } from "antd"
+import { Button } from "antd";
 
-import styles from './Filter.module.scss'
+import classNames from "classnames";
 
-const Filter = () => {
-    return ( 
-        <div className={styles.filter}>
-            <div className={styles.filterLeft}>
-                <Button className={styles.btn}>На неделю</Button>
-                <Button className={styles.btn}>На 10 дней</Button>
-                <Button className={styles.btn}>На 14 дней</Button>
-            </div>
-            <div className={styles.filterRight}>
-                <Button className={styles.btn}>Отменить</Button>
-            </div>
-        </div>
-    )
-}
+import styles from "./Filter.module.scss";
 
-export default Filter
+const Filter = ({
+  selectedCountDay,
+  onChangeCount,
+}: {
+  selectedCountDay: number;
+  onChangeCount: (v: number) => void;
+}) => {
+  const options = [7, 10, 14];
+
+  return (
+    <div className={styles.filter}>
+      <div className={styles.filterLeft}>
+        {options.map((count) => (
+          <Button
+            key={count}
+            className={classNames(styles.btn, {
+              [styles.active]: selectedCountDay === count,
+            })}
+            onClick={() => onChangeCount(count)}
+          >
+            На {count} дней
+          </Button>
+        ))}
+      </div>
+      <div className={styles.filterRight} onClick={() => onChangeCount(7)}>
+        <Button className={styles.btn}>Отменить</Button>
+      </div>
+    </div>
+  );
+};
+
+export default Filter;

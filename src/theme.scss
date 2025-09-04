@@ -1,0 +1,16 @@
+:root {
+  color-scheme: light dark;
+
+  --bg-color: light-dark(#fff, #0D1117);
+  --text-color: light-dark(#000, #fff);
+  --card-color: light-dark(rgba(71, 147, 255, 0.2), #2E3035);
+  --border-color: light-dark(rgb(226, 226, 226), #2E3035);
+  --background-main-card-color: light-dark(#fff, #4F4F4F);
+  --button-color: light-dark(#ffffff, #4F4F4F);
+  --select-color: light-dark(rgba(85, 87, 88, 0.2), #d30303);
+  --stroke-line-color: light-dark(#000, #fff)
+}
+
+body {
+  background-color: var(--bg-color);
+}
