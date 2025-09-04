@@ -4,6 +4,8 @@ import { WeatherContext } from '../../context/context'
 import Card from '../card/Card'
 import SkeletonCard from '../skeletonCard/SkeletonCard'
 
+import type { ForecastDay } from '../../context/types';
+
 import styles from './Cards.module.scss'
 
 type CardsProps = {
@@ -30,7 +32,7 @@ const Cards = ({requiredCountCards, openModal}: CardsProps) => {
     
     return (
         <div className={styles.container}>
-            {weather?.forecast.forecastday.map((dayForecast) => (
+            {weather?.forecast.forecastday.map((dayForecast: ForecastDay) => (
                 <Card key={dayForecast.date} date={dayForecast.date} forecast={dayForecast} onClick={openModal}/>
             ))}
             {emptyCards}
