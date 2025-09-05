@@ -1,0 +1,27 @@
+@mixin media-breakpoint-down($size) {
+  @if $size == xxs {
+    @media (width <= 425px) {
+      @content;
+    }
+  } @else if $size == xs {
+    @media (width <= 576px) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media (width <= 768px) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (width <= 992px) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (width <= 1250px) {
+      @content;
+    }
+  } @else if $size == xl {
+    @media (width <= 1400px) {
+      @content;
+    }
+  }
+}

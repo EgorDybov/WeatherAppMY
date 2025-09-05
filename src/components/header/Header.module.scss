@@ -1,4 +1,6 @@
-.header {
+@use '../../styles/main' as *;
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,11 +11,15 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @include media-breakpoint-down(xxs) {
+        gap: 10px;
+    }   
 }
 
 .headerNameLogo {
     font-weight: 700;
-    font-size: 25px;
+    font-size: clamp(1rem, 0.8702rem + 0.5769vw, 1.5625rem);;
     text-transform: uppercase;
     color: #4793ff;
 }
@@ -22,9 +28,17 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @include media-breakpoint-down(xxs) {
+        gap: 10px;
+    }  
 }
 
 .headerSelect {
     width: 194px;
     height: 37px;
+
+    @include media-breakpoint-down(xxs) {
+        width: 150px;
+    }
 }

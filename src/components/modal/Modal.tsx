@@ -33,12 +33,15 @@ const Modal = ({isOpen, onClose}: IModalProps) => {
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('modal-open');
+      document.body.style.overflow = "hidden"; 
     } else {
       document.body.classList.remove('modal-open');
+      document.body.style.overflow = "";
     }
 
     return () => {
       document.body.classList.remove('modal-open');
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -76,6 +79,7 @@ const Modal = ({isOpen, onClose}: IModalProps) => {
           {hourData.length > 0 && 
             (isBarChart ? 
             <LineChart 
+              className={styles.LineChart}
               width={730} 
               height={350} 
               margin={{ top: 20, right: 50, left: 0, bottom: 20 }}
@@ -85,10 +89,11 @@ const Modal = ({isOpen, onClose}: IModalProps) => {
               <XAxis dataKey="name" tick={{ fill: "var(--stroke-line-color)" }}/>
               <YAxis tick={{ fill: "var(--stroke-line-color)" }}/>
               <Tooltip wrapperStyle={{color: '#000'}}/>
-              <Legend />
+              <Legend wrapperStyle={{ width: "100%" }}/>
               <Line type="monotone" dataKey="temperature" stroke="#4793ff" />
             </LineChart>
           : <BarChart 
+              className={styles.BarChart}
               width={730} 
               height={350} 
               margin={{ top: 20, right: 50, left: 0, bottom: 20 }}
@@ -99,7 +104,7 @@ const Modal = ({isOpen, onClose}: IModalProps) => {
               <XAxis dataKey="name" tick={{ fill: "var(--stroke-line-color)" }}/>
               <YAxis tick={{ fill: "var(--stroke-line-color)" }}/>
               <Tooltip wrapperStyle={{color: '#000'}}/>
-              <Legend type='line'/>
+              <Legend type='line' wrapperStyle={{ width: "100%" }}/>
               <Bar dataKey="temperature" fill="#4793ff" />
             </BarChart>)}
         </div>

@@ -1,3 +1,5 @@
+@use '/src/styles/main' as *;
+
 .overlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -22,6 +24,23 @@
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.28);
     max-width: 800px;
     margin: 0 auto;
+
+    @include media-breakpoint-down(xxs) {
+        width: 380px;
+    }
+}
+
+.LineChart, 
+.BarChart {
+    @include media-breakpoint-down (xxs) {
+        width: 350px !important;
+        height: 250px !important;
+        margin: 0;       
+    }
+}
+
+.recharts-legend-wrapper {
+  width: 300px !important;
 }
 
 .modalUp {
