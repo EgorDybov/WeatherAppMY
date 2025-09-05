@@ -1,14 +1,33 @@
+@use '/src/styles/main' as *;
+
 .filter {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+
+    @include media-breakpoint-down(xxs) {
+        flex-direction: column;
+        row-gap: 20px;
+    }
 }
 
 .filterLeft {
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @include media-breakpoint-down(xxs) {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+}
+
+.filterRight {
+    @include media-breakpoint-down(xxs) {
+        width: 100% !important;
+    }
 }
 
 .btn {
@@ -17,6 +36,11 @@
     font-size: 16px;
     color: #d9d9d9;
     background-color: var(--button-color);
+    display: block;
+
+    @include media-breakpoint-down(xxs) {
+        width: 100% !important;
+    }
 }
 
 .active {

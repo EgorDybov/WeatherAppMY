@@ -1,5 +1,15 @@
+@use '/src/styles/main' as *;
+
 .dayInfo {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+
+    @include media-breakpoint-down(lg) {
+        gap: 20px;
+    }
+
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+    }
 }

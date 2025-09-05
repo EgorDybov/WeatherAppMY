@@ -6,7 +6,7 @@ import AppLayout from "./components/AppLayout";
 import Modal from "./components/modal/Modal";
 import MainPage from "./components/MainPage";
 
-import './theme.scss'
+import './styles/main.scss'
 
 function App() {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
